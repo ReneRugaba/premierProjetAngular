@@ -1,0 +1,6 @@
+<div *ngFor="let value of voiture" class="row">
+        <div class="col-6 text-center">{{value.marque}}</div>
+    <div class="col-6 mx-auto d-block m-2">
+        <button (click)="changeStatuButton(value.marque)" [ngClass]="{'btn':true,'btn-success':value.nomButton=='arreter','btn-danger':value.nomButton=='demarrer'}"  >{{value.nomButton}}</button>
+    </div>
+</div>
