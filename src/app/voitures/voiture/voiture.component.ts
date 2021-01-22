@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
 
 @Component({
     selector: "app-voiture",
@@ -7,22 +7,18 @@ import { Component } from "@angular/core";
 })
 
 export class voitureComponent{
-    voiture:{marque:string,nomButton:string}[]= [{marque:"Opel",nomButton:"demarrer"},{marque:"BMW",nomButton:"demarrer"},{marque:"MERCEDES",nomButton:"demarrer"},];
-    
+    @Input() laVoiture:{marque:string,status:string};
+    @Output() eventVoitureDetail = new EventEmitter<{marque: string,status: string}>();
    
-  
-
-    changeStatuButton(marque:string){
-     
-       for (const value of this.voiture) {
-           if(marque==value.marque){
-               if(value.nomButton=="demarrer"){
-                   value.nomButton="arreter";
-               }else{
-                value.nomButton="demarrer";
+    changeStatuButton(){
+               if(this.laVoiture.status=="demarrer"){
+                this.laVoiture.status="arreter";
+               }else if(this.laVoiture.status=="arreter"){
+                this.laVoiture.status="demarrer";
                }
            }
-       }
-       
+
+    returnDetails(voiture:{marque: string, status: string}){
+        this.eventVoitureDetail.emit(voiture);
     }
 }

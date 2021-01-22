@@ -1,7 +1,11 @@
 <div class="contener ">
     <h1 class="text-center mb-5">{{ title }}</h1>
-
-    <div class="col-12">
-        <app-voiture></app-voiture>
+    <div class="row"> 
+        <app-ajout-voiture class=" mx-auto d-block m-3" (eventAddCar)="addNewCar($event)"></app-ajout-voiture>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <app-voiture *ngFor="let voiture of voitures" [laVoiture]="voiture"></app-voiture>
+        </div>
     </div>
 </div>
