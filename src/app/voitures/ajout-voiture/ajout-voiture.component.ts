@@ -1,5 +1,6 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { EventEmitter } from '@angular/core';
+import { VoitureService } from '../../voiture.service';
 
 @Component({
   selector: 'app-ajout-voiture',
@@ -7,13 +8,15 @@ import { EventEmitter } from '@angular/core';
   styleUrls: ['./ajout-voiture.component.css']
 })
 export class AjoutVoitureComponent implements OnInit {
-  @Output() eventAddCar= new EventEmitter<{marque: string, status: string}>();
-  constructor() { }
+  // @Output() eventAddCar= new EventEmitter<{marque: string, status: string}>();
+  carServ:VoitureService;
+  constructor(private carService:VoitureService) { }
 
   ngOnInit(): void {
+    this.carServ=this.carService;
   }
 
   addNewCar(value:string){
-    this.eventAddCar.emit({marque: value, status: "arreter"});
+    this.carServ.addCar({marque: value, status: "arreter"});
  }
 }

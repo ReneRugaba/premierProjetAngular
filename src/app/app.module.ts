@@ -5,6 +5,9 @@ import { AppComponent } from './app.component';
 import { voitureComponent } from './voitures/voiture/voiture.component';
 import { voituresComponent } from './voitures/voitures.component';
 import { AjoutVoitureComponent } from './voitures/ajout-voiture/ajout-voiture.component';
+import { VoitureService } from './voiture.service';
+import { DetailsVoitureComponent } from './details-voiture/details-voiture.component';
+
 
 
 
@@ -13,12 +16,14 @@ import { AjoutVoitureComponent } from './voitures/ajout-voiture/ajout-voiture.co
     AppComponent,
     voitureComponent,
     voituresComponent,
-    AjoutVoitureComponent
+    AjoutVoitureComponent,
+    DetailsVoitureComponent
+    
   ],
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [VoitureService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

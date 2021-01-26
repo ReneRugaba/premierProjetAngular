@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from "@angular/core";
+import { VoitureService } from '../../voiture.service';
 
 @Component({
     selector: "app-voiture",
@@ -8,7 +9,12 @@ import { Component, EventEmitter, Input, Output } from "@angular/core";
 
 export class voitureComponent{
     @Input() laVoiture:{marque:string,status:string};
-    @Output() eventVoitureDetail = new EventEmitter<{marque: string,status: string}>();
+    // @Output() eventVoitureDetail = new EventEmitter<{marque: string,status: string}>();
+    CarService:VoitureService;
+
+    constructor(private CarServ: VoitureService){
+        this.CarService = CarServ;
+    }
    
     changeStatuButton(){
                if(this.laVoiture.status=="demarrer"){
@@ -19,6 +25,6 @@ export class voitureComponent{
            }
 
     returnDetails(voiture:{marque: string, status: string}){
-        this.eventVoitureDetail.emit(voiture);
+        this.CarService.detailsVoiture(voiture);
     }
 }
