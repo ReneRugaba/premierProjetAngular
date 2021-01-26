@@ -11,13 +11,13 @@ export class DetailsVoitureComponent implements OnInit {
   detailsVoiture:{marque:string,status:string};
 
   constructor(private VoitureService:VoitureService) {
-   this.VoitureService.eventdetailsVoiture.subscribe(marque=>{
-     this.detailsVoiture=this.VoitureService.getDetailVoiture(marque);
-   })
+   
   }
 
   ngOnInit(): void {
-    
+    this.VoitureService.eventdetailsVoiture.subscribe(marque=>{
+      this.detailsVoiture=this.VoitureService.getDetailVoiture(marque);
+    })
   }
 
 }

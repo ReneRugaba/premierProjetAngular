@@ -7,6 +7,7 @@ import { voituresComponent } from './voitures/voitures.component';
 import { AjoutVoitureComponent } from './voitures/ajout-voiture/ajout-voiture.component';
 import { VoitureService } from './voiture.service';
 import { DetailsVoitureComponent } from './details-voiture/details-voiture.component';
+import { VoitureDirective } from './directive/voiture.directive';
 
 
 
@@ -17,8 +18,8 @@ import { DetailsVoitureComponent } from './details-voiture/details-voiture.compo
     voitureComponent,
     voituresComponent,
     AjoutVoitureComponent,
-    DetailsVoitureComponent
-    
+    DetailsVoitureComponent,
+    VoitureDirective
   ],
   imports: [
     BrowserModule
